@@ -1,5 +1,5 @@
 {
-  "name": "@rise/react",
+  "name": "@fancn21th/rise-react",
   "version": "0.0.1",
   "description": "React components for Rice AI component library",
   "main": "dist/index.js",
