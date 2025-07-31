@@ -12,7 +12,7 @@ export const ThreadList: FC = () => {
   return (
     <ThreadListPrimitive.Root className="flex flex-col items-stretch gap-1.5">
       <ThreadListNew />
-      <ThreadListItems />
+      {/* <ThreadListItems /> */}
     </ThreadListPrimitive.Root>
   );
 };
@@ -21,11 +21,11 @@ const ThreadListNew: FC = () => {
   return (
     <ThreadListPrimitive.New asChild>
       <Button
-        className="data-[active]:bg-muted hover:bg-muted flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start"
+        className="self-btn-add data-[active]:bg-muted hover:bg-muted flex items-center justify-start gap-1 rounded-lg px-2.5 py-2 text-start"
         variant="ghost"
       >
         <PlusIcon />
-        New Thread
+        新建
       </Button>
     </ThreadListPrimitive.New>
   );
@@ -41,7 +41,7 @@ const ThreadListItem: FC = () => {
       <ThreadListItemPrimitive.Trigger className="flex-grow px-3 py-2 text-start">
         <ThreadListItemTitle />
       </ThreadListItemPrimitive.Trigger>
-      <ThreadListItemArchive />
+      {/* <ThreadListItemArchive /> */}
     </ThreadListItemPrimitive.Root>
   );
 };

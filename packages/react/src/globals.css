@@ -2,6 +2,129 @@
 @tailwind components;
 @tailwind utilities;
 
+.self-input-form {
+  border-radius: 16px;
+  border: 1px solid #bc68ff;
+  background: #fff;
+  padding: 1rem;
+  padding-bottom: 3rem;
+  position: fixed;
+  bottom: 1rem;
+  width: calc(100% - 2rem);
+  /* max-width: 72rem; */
+}
+.self-input-form #self-input {
+  height: 100% !important;
+  outline: none !important;
+  border: unset !important;
+}
+.self-input-form button {
+  color: #bc68ff;
+  margin-left: 0.5rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+.self-input-form button .aui-sr-only {
+  display: none;
+}
+.self-all-message {
+  height: calc(100vh - 11rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: #344054;
+  font-family: "PingFang SC";
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+/* Webkit 浏览器滚动条样式 */
+.self-all-message::-webkit-scrollbar {
+  width: 6px;
+}
+
+.self-all-message::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.self-all-message::-webkit-scrollbar-thumb {
+  background: #bc68ff;
+  border-radius: 10px;
+}
+
+.self-all-message::-webkit-scrollbar-thumb:hover {
+  background: #a855f7;
+}
+
+.self-user-message {
+  text-align: right;
+  padding-left: 25%;
+  padding-right: 6px;
+}
+.self-user-message > p {
+  display: inline-block;
+  padding: 8px 12px;
+  color: #fff;
+  border-radius: 16px 16px 0 16px;
+  background: linear-gradient(90deg, #bc68ff 0%, #4c56f6 100%);
+}
+
+.self-assistant-message-main {
+  text-align: left;
+  padding-right: 25%;
+  padding-left: 6px;
+}
+.self-assistant-message-main > div {
+  padding: 8px 12px;
+  background-color: #fff;
+  border-radius: 16px 16px 16px 0;
+}
+.self-assistant-message button {
+  margin-right: 0.5rem;
+}
+.self-assistant-message button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.self-thread-input {
+  height: auto;
+}
+.self-btn-down {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 8rem;
+  right: 3rem;
+  cursor: pointer;
+  background-color: #bc68ff;
+  color: #fff;
+}
+.self-thread-input button .aui-sr-only {
+  display: none;
+}
+.self-btn-add {
+  position: fixed;
+  top: 1rem;
+  right: 3rem;
+  cursor: pointer;
+  color: #bc68ff;
+}
+.self-btn-add svg {
+  width: 24px;
+  height: 24px;
+}
+.self-btn-add:hover {
+  transform: scale(1.2);
+  transition: all 0.2s ease;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -49,11 +172,12 @@
   }
 }
 
-@layer base {
+/* @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
-}
+} */
