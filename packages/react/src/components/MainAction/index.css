@@ -1,0 +1,75 @@
+.action-buttons-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  width: 100%;
+  /* max-width: 800px; */
+  margin: 0 auto;
+}
+
+.action-buttons-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-btn {
+  display: flex;
+  padding: 4px 12px;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.action-btn:hover, .sub-menu-item:hover {
+  color: var(--light-color);
+  background-color: var(--bg-color);
+}
+
+.action-btn-outline {
+  border: 1px solid #e4e4e7;
+  background: #fff;
+  color: var(--text-color);
+}
+
+.action-btn-text {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.query-icon {
+  width: 16px;
+  height: 16px;
+  background: url('../../assets/image/group.png') no-repeat center center;
+  background-size: contain;
+}
+
+.sub-menu {
+  width: auto;
+  position: absolute;
+  top: -50px;
+  left: 0;
+  background: #fff;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 8px;
+  z-index: 1000;
+  white-space: nowrap;
+}
+.sub-menu-list{
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+}
+.sub-menu-item{
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}

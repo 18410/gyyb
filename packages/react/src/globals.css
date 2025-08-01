@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --text-color: #344054;
+  --light-color: #4C56F6;
+  --bg-color: #dee7ff;
+  --bg-color2: #f5f8ff;
+  --default-font: "PingFang SC";
+}
+
+
 .self-input-form {
   border-radius: 16px;
   border: 1px solid #bc68ff;
@@ -59,11 +68,18 @@
 }
 
 .self-user-message {
+  display: flex;
+  justify-content: flex-end;
+}
+.self-assistant-action button .aui-sr-only {
+  display: none;
+}
+.self-user-message-main {
   text-align: right;
   padding-left: 25%;
   padding-right: 6px;
 }
-.self-user-message > p {
+.self-user-message-main > p {
   display: inline-block;
   padding: 8px 12px;
   color: #fff;
@@ -81,12 +97,18 @@
   background-color: #fff;
   border-radius: 16px 16px 16px 0;
 }
+.self-assistant-message-main > div[data-status="running"] {
+  background-color: unset;
+}
 .self-assistant-message button {
   margin-right: 0.5rem;
 }
-.self-assistant-message button svg {
+.self-assistant-message button svg, .self-suggestion button img {
   width: 18px;
   height: 18px;
+}
+.self-assistant-action {
+  padding: 8px 10px;
 }
 
 .self-thread-input {
@@ -122,6 +144,32 @@
 }
 .self-btn-add:hover {
   transform: scale(1.2);
+  transition: all 0.2s ease;
+}
+.text-h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+.text-base{
+  font-size: 1rem;
+}
+.self-suggestion {
+  gap: 10px;
+  align-items: center;
+}
+.self-suggestion button {
+  width: 70%;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.self-suggestion button:hover {
+  background: #f3f4f6;
   transition: all 0.2s ease;
 }
 

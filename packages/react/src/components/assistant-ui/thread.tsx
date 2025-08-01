@@ -22,6 +22,8 @@ import { cn } from "../../lib/utils";
 import { Button } from "../ui/button";
 import { MarkdownText } from "./markdown-text";
 import { TooltipIconButton } from "./tooltip-icon-button";
+import MainAction from "../MainAction";
+
 
 export const Thread: FC = () => {
   return (
@@ -54,6 +56,7 @@ export const ThreadInput: FC = () => {
   return (
     <div className="self-thread-input">
       {/* <ThreadScrollToBottom /> */}
+      <MainAction />
       <Composer />
     </div>
   );
@@ -79,9 +82,12 @@ const ThreadWelcome: FC = () => {
   return (
     <ThreadPrimitive.Empty>
       <div className="flex w-full max-w-[var(--thread-max-width)] flex-grow flex-col">
-        <div className="flex w-full flex-grow flex-col items-center justify-center">
-          <p className="mt-4 font-medium">How can I help you today?</p>
+        <div className="flex w-full flex-grow flex-col " style={{margin: '2rem 0', textAlign: 'left'}}>
+          <p className="font-bold text-h2 text-left" style={{padding:'10px 15%'}}>你好，</p>
+          <p className="font-bold text-left text-base" style={{padding:'5px 15%'}}>我可以帮你梳理本周工作要点，查询周报相关内容</p>
         </div>
+        <p className="font-bold text-base" style={{padding:'10px 15%'}}>请把内容交给我吧~</p>
+
         <ThreadWelcomeSuggestions />
       </div>
     </ThreadPrimitive.Empty>
@@ -90,25 +96,32 @@ const ThreadWelcome: FC = () => {
 
 const ThreadWelcomeSuggestions: FC = () => {
   return (
-    <div className="mt-3 flex w-full items-stretch justify-center gap-4">
+    <div className="self-suggestion mt-3 flex flex-col justify-center gap-4">
       <ThreadPrimitive.Suggestion
-        className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
-        prompt="What is the weather in Tokyo?"
+        prompt="撰写本周周报"
         method="replace"
         autoSend
       >
-        <span className="line-clamp-2 text-ellipsis text-sm font-semibold">
-          What is the weather in Tokyo?
+        <span className="w-full">
+          撰写本周周报
         </span>
       </ThreadPrimitive.Suggestion>
       <ThreadPrimitive.Suggestion
-        className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
-        prompt="What is assistant-ui?"
+        prompt="查询本周日程、会议纪要、任务，并进行总结"
         method="replace"
         autoSend
       >
-        <span className="line-clamp-2 text-ellipsis text-sm font-semibold">
-          What is assistant-ui?
+        <span className="w-full">
+          查询本周日程、会议纪要、任务，并进行总结
+        </span>
+      </ThreadPrimitive.Suggestion>
+      <ThreadPrimitive.Suggestion
+        prompt="查询本周Jira日志，并进行总结"
+        method="replace"
+        autoSend
+      >
+        <span className="w-full">
+          查询本周Jira日志，并进行总结
         </span>
       </ThreadPrimitive.Suggestion>
     </div>
@@ -161,10 +174,10 @@ const ComposerAction: FC = () => {
 
 const UserMessage: FC = () => {
   return (
-    <MessagePrimitive.Root className="grid auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] gap-y-2 [&:where(>*)]:col-start-2 w-full max-w-[var(--thread-max-width)] py-4">
+    <MessagePrimitive.Root className="self-user-message grid auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] gap-y-2 [&:where(>*)]:col-start-2 w-full max-w-[var(--thread-max-width)] py-4">
       {/* <UserActionBar /> */}
 
-      <div className="self-user-message bg-muted text-foreground max-w-[calc(var(--thread-max-width)*0.8)] break-words rounded-3xl py-2.5 col-start-2 row-start-2">
+      <div className="self-user-message-main bg-muted text-foreground max-w-[calc(var(--thread-max-width)*0.8)] break-words rounded-3xl py-2.5 col-start-2 row-start-2">
         <MessagePrimitive.Parts />
       </div>
 
@@ -178,10 +191,10 @@ const UserActionBar: FC = () => {
     <ActionBarPrimitive.Root
       hideWhenRunning
       autohide="not-last"
-      className="flex flex-col items-end col-start-1 row-start-2 mr-3 mt-2.5"
+      className="self-user-action flex flex-col items-end col-start-1 row-start-2 mr-3 mt-2.5"
     >
       <ActionBarPrimitive.Edit asChild>
-        <TooltipIconButton tooltip="Edit">
+        <TooltipIconButton tooltip="">
           <PencilIcon />
         </TooltipIconButton>
       </ActionBarPrimitive.Edit>
@@ -237,7 +250,7 @@ const AssistantActionBar: FC = () => {
       hideWhenRunning
       autohide="not-last"
       autohideFloat="single-branch"
-      className="mt-3 text-muted-foreground flex gap-1 col-start-3 row-start-2 -ml-1 data-[floating]:bg-background data-[floating]:absolute data-[floating]:rounded-md data-[floating]:border data-[floating]:p-1 data-[floating]:shadow-sm"
+      className="self-assistant-action mt-3 text-muted-foreground flex gap-1 col-start-3 row-start-2 -ml-1 data-[floating]:bg-background data-[floating]:absolute data-[floating]:rounded-md data-[floating]:border data-[floating]:p-1 data-[floating]:shadow-sm"
     >
       <ActionBarPrimitive.Copy asChild>
         <TooltipIconButton tooltip="">
@@ -266,7 +279,7 @@ const BranchPicker: FC<BranchPickerPrimitive.Root.Props> = ({
     <BranchPickerPrimitive.Root
       hideWhenSingleBranch
       className={cn(
-        "text-muted-foreground inline-flex items-center text-xs",
+        "text-muted-foreground flex items-center text-xs",
         className
       )}
       {...rest}
